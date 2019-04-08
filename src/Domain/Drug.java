@@ -1,16 +1,25 @@
 package Domain;
 
-public class Drug {
-    private String id, name, manufacturer;
+import java.util.Objects;
+
+public class Drug extends Entity {
+    private String name, manufacturer;
     private double price;
     private boolean neeedRecipe;
 
     public Drug(String id, String name, String manufacturer, double price, boolean neeedRecipe) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;
         this.neeedRecipe = neeedRecipe;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, manufacturer, price, neeedRecipe);
     }
 
     @Override
@@ -18,13 +27,12 @@ public class Drug {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Drug drug = (Drug) o;
-        return id.equals(drug.id);
+        return getId().equals(drug.getId());
     }
 
     @Override
     public String toString() {
         return "Drug{" +
-                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", price=" + price +
@@ -32,13 +40,6 @@ public class Drug {
                 '}';
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

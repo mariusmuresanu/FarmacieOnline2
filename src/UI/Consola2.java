@@ -15,7 +15,11 @@ public class Consola2 {
 
     private void showOptions() {
 
+
         System.out.println("show all -> afiseaza toate medicamentele");
+        System.out.println("show transaction-> Afișarea tuturor tranzacțiilor dintr-un interval de zile dat.");
+        System.out.println("show drugs-> Afișarea medicamentelor ordonate descrescător după numărul de vânzări.");
+        System.out.println("show client card -> Afișarea cardurilor client ordonate descrescător după valoarea reducerilor obținute.");
         System.out.println("exit -> inchide aplicatia");
         System.out.println("add <id> <name> <manufacturer> <price> <neeedRecipe> ->adauga");
         System.out.println("remove -> face undo pe ultima modificare");
@@ -44,7 +48,7 @@ public class Consola2 {
     private void handleAdd(String[] args) {
         try {
             if (args.length != 6) {
-                System.out.println("Eroare: add primeste exact 7 parametri separati prin spatiu!");
+                System.out.println("Eroare: add primeste exact 5 parametri separati prin spatiu!");
             } else {
                 String id = args[1];
                 String name = args[2];

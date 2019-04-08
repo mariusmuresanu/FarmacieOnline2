@@ -1,15 +1,15 @@
 package Service;
 
 import Domain.Drug;
-import Repository.DrugRepository;
+import Repository.IRepository;
 
 import java.util.List;
 
 public class DrugService {
 
-    private DrugRepository repository;
+    private IRepository<Drug> repository;
 
-    public DrugService(DrugRepository repository) {
+    public DrugService(IRepository<Drug> repository) {
         this.repository = repository;
     }
 

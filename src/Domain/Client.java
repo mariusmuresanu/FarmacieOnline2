@@ -1,15 +1,13 @@
 package Domain;
 
-import UI.Console;
-
 import java.util.Objects;
 
-public class Client {
-    private String id, lastName, firstName, CNP, dateOfBirth, dateOfRegistration;
+public class Client extends Entity {
+    private String lastName, firstName, CNP, dateOfBirth, dateOfRegistration;
 
 
     public Client(String id, String lastName, String firstName, String CNP, String dateOfBirth, String dateOfRegistration) {
-        this.id = id;
+        super(id);
         this.lastName = lastName;
         this.firstName = firstName;
         this.CNP = CNP;
@@ -20,7 +18,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "id='" + id + '\'' +
+                "id='" + getId() + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", CNP='" + CNP + '\'' +
@@ -29,26 +27,10 @@ public class Client {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(id, client.id);
-
-    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastName, firstName, CNP, dateOfBirth, dateOfRegistration);
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        return Objects.hash(getId(), lastName, firstName, CNP, dateOfBirth, dateOfRegistration);
     }
 
     public String getLastName() {

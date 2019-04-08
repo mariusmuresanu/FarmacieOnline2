@@ -2,8 +2,7 @@ package Service;
 
 import Domain.Drug;
 import Domain.Transaction;
-import Repository.DrugRepository;
-import Repository.TransactionRepository;
+import Repository.IRepository;
 
 import java.util.List;
 
@@ -11,10 +10,10 @@ public class TransactionService {
 
 
 
-    private TransactionRepository transactionRepository;
-    private DrugRepository drugRepository;
+    private IRepository<Transaction> transactionRepository;
+    private IRepository<Drug> drugRepository;
 
-    public TransactionService(TransactionRepository transactionRepository, DrugRepository drugRepository) {
+    public TransactionService(IRepository<Transaction> transactionRepository, IRepository<Drug> drugRepository) {
         this.transactionRepository = transactionRepository;
         this.drugRepository = drugRepository;
     }
